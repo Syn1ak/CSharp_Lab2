@@ -103,6 +103,7 @@ namespace CSharp_Lab2.ViewModels
                 IsEnabled = false;
                 await Task.Delay(1000);
                 person = new Person(name, surname, email, birthDate ?? DateTime.MinValue);
+                await person.UpdateReadonlyFields();
                 OnPropertyChanged(nameof(PersonName));
                 OnPropertyChanged(nameof(PersonSurname));
                 OnPropertyChanged(nameof(PersonEmail));

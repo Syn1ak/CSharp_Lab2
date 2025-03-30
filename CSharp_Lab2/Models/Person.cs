@@ -15,10 +15,10 @@ namespace CSharp_Lab2.Models
         private string email;
         private DateTime birthdate;
 
-        private readonly bool isAdult;
-        private readonly bool isBirthday;
-        private readonly string sunSign;
-        private readonly string chineseSign;
+        private bool isAdult;
+        private bool isBirthday;
+        private string sunSign;
+        private string chineseSign;
 
         public Person(string name, string surname, string email, DateTime birthdate)
         {
@@ -53,6 +53,19 @@ namespace CSharp_Lab2.Models
             {
                 throw new Exception("Invalid email!");
             }
+        }
+
+        public async Task UpdateReadonlyFields()
+        {
+            Task<bool> isAdultTask = Task.Run(() => CheckAdult());
+            Task<string> sunSignTask = Task.Run(() => GetSunZodiacSign());
+            Task<string> chineseSignTask = Task.Run(() => GetChineseZodiacSign());
+            Task<bool> isBirthdayTask = Task.Run(() => CheckBirthday());
+
+            isAdult = await isAdultTask;
+            sunSign = await sunSignTask;
+            chineseSign = await chineseSignTask;
+            isBirthday = await isBirthdayTask;
         }
 
         public Person(string firstName, string lastName, string email)
