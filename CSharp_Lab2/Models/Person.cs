@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CSharp_Lab2.Exceptions;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -33,25 +34,25 @@ namespace CSharp_Lab2.Models
             int age = CalculateAge();
             if (age < 0)
             {
-                throw new Exception("Too late birth date!");
+                throw new FutureBirthdateException("Too late birth date!");
             }
             if (age > 135)
             {
-                throw new Exception("Too early birth date!");
+                throw new TooEarlyBirthdateException("Too early birth date!");
             }
             Regex correctName = new Regex("^[A-Z](?:[a-z.,'_ -]*[a-zA-Z0-9])?$");
             if (!correctName.IsMatch(name))
             {
-                throw new Exception("Invalid name!");
+                throw new InvalidNameException("Invalid name!");
             }
             if (!correctName.IsMatch(surname))
             {
-                throw new Exception("Invalid surname!");
+                throw new InvalidSurnameException("Invalid surname!");
             }
             Regex correctEmail = new Regex("^\\S+@\\S+\\.\\S+$");
             if (!correctEmail.IsMatch(email))
             {
-                throw new Exception("Invalid email!");
+                throw new InvalidEmailException("Invalid email!");
             }
         }
 
