@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:CSharp_Lab2"
         xmlns:views="clr-namespace:CSharp_Lab2.Views"
         mc:Ignorable="d"
-        Title="MainWindow" Height="620" Width="600">
+        Title="MainWindow" Height="auto" Width="auto">
     <Grid>
         <views:PersonaFormView></views:PersonaFormView>
     </Grid>

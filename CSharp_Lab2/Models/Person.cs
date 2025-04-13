@@ -9,7 +9,7 @@ using System.Windows.Documents;
 
 namespace CSharp_Lab2.Models
 {
-    class Person
+    public class Person
     {
         private string name;
         private string surname;
